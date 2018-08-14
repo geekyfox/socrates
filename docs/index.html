@@ -1,0 +1,72 @@
+<html>
+<head>
+<title>Socrates: The brainstorming machine</title>
+<meta charset="utf-8" />
+<script src="jquery.min.js"></script>
+<script src="socrates.web.js"></script>
+<link rel="stylesheet" href="socrates.css">
+</head>
+<body>
+    <div class="heading">
+        <span class="heading-item">
+            <a href="https://github.com/geekyfox/socrates">Fork on GitHub</a>
+        </span>
+        <span class="heading-item">
+            <a id="give-feedback">Give feedback</a>
+        </span>        
+    </div>
+
+    <div class="popup" id="feedback-popup">
+        To give feedback you can:
+        <ul>
+            <li>
+                send me an email to
+                <a href="mailto:ivan.appel@gmail.com">ivan.appel@gmail.com</a>
+            </li>
+            <li>
+                create an issue at
+                <a href="https://github.com/geekyfox/socrates/issues">
+                    GitHub page of the project
+                </a>
+            </li>
+            <li>
+                tweet me <a href="https://twitter.com/geekyfox">@geekyfox</a>
+            </li>
+            <li>
+                donate
+                <a href="https://paypal.me/geekyfox/10EUR">via PayPal</a>
+                :-)
+            </li>
+        </ul>
+        <br />
+        <div style="text-align:center">
+            <button class="close">OK</button>
+        </div>
+    </div>
+
+    <div class="container main">
+        <div class="dialog-pane clearfix">
+            <div class="reply-pane" id="reply-pane"></div>
+        </div>
+    </div>
+
+    
+    <script>
+        $(function() {
+            $('#give-feedback').click(function() {
+                $('#feedback-popup').show()
+                $('div.container').hide()
+            })
+            
+            $('#feedback-popup button.close').click(function() {
+                $('#feedback-popup').hide()
+                $('div.container').show()                
+            })
+            
+            var platform = new Web()
+            var app = new App(platform)
+            app.start()
+        })
+    </script>
+</body>
+</html>
